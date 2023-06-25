@@ -1,0 +1,27 @@
+#Assets Post
+POST http://localhost:3000/api/assets
+Content-Type: application/json
+
+{
+  "id": "Ouro",
+  "symbol": "A1"
+}
+
+
+###
+#Assets Get
+GET http://localhost:3000/api/assets
+
+###
+#Orders Post
+POST http://localhost:3000/api/orders
+Content-Type: application/json
+
+{
+  "asset_id": "Ouro",
+  "price": 100
+}
+
+###
+#Orders Get
+GET http://localhost:3000/api/orders
