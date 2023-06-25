@@ -1,17 +1,16 @@
-FROM node:20-slim AS builder
+FROM node:20-slim
+
 WORKDIR /home/node/app
+
+RUN apt-get update -y && apt-get install -y openssl
+
 COPY . /home/node/app
-USER root
 
-COPY . .
-
-RUN apt-get update -y && \
-    apt-get install -y openssl
-
-RUN npm install -g @nestjs/cli
 RUN npm install
+
+EXPOSE 3000
+
 RUN npx prisma generate
 
-USER node
+CMD [ "npm", "start" ]
 
-CMD ["npm", "start"]
