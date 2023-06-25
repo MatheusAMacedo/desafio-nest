@@ -6,12 +6,12 @@ import {CreateAssetDto} from "./dto/create-asset.dto";
 export class AssetController {
   constructor(private assetService: AssetService) {}
 
-  @Post()
+  @Get()
   listAssets() {
     return this.assetService.all();
   }
 
-  @Get()
+  @Post()
   createAsset(@Body() createAssetDto: CreateAssetDto) {
     return this.assetService.create(createAssetDto);
   }
